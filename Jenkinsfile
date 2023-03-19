@@ -1,4 +1,4 @@
-#Validate the Pull Request yaml file in repo
+/*Validate the Pull Request yaml file in repo */
 
 pipeline {
   agent any
@@ -6,7 +6,7 @@ pipeline {
     stage("Validate YAML files") {
       steps {
         script {
-          yamlFiles=sh(returnStdout: true, script: 'find . -type f -name "*.yaml" -not -path "./*/template*/*"').trim() #exclude the folder to validate i.e template
+          yamlFiles=sh(returnStdout: true, script: 'find . -type f -name "*.yaml" -not -path "./*/template*/*"').trim() /* exclude the folder to validate i.e template */
           def validationErrors=false
           for (yamlFile in yamlFiles.split('\n')) {
             if (!yamlFile?.trim()) {
